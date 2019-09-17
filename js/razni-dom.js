@@ -132,9 +132,9 @@ return [top,left];
 }
 
 
-var width = getWindowSize().width;
+//var width = getWindowSize().width;
 
-code
+//code
 
 var getWindowSize = (function() {
   var docEl = document.documentElement,
