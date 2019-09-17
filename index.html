@@ -6,10 +6,11 @@
 <head>
   <meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8" />
   <title>Поле</title>
-  <link rel="stylesheet" href="pole.css" type="text/css" media="screen" title="percent"
+  <link rel="stylesheet" href="pole.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="pole-style.css" type="text/css" media="screen" title="pjp1"
 charset="utf-8" />
-  <link rel="alternate stylesheet" href="pole_abs.css" type="text/css" media="screen"
-title="absolute" charset="utf-8" />
+  <link rel="alternate stylesheet" href="pole_abs.css" type="text/css" title="pjp2"
+charset="utf-8" />
   <script type="text/javascript" src="/../js/razni-dom.js"></script>
   <script type="text/javascript" src="pole.js"></script>
   <script type="text/javascript" >
@@ -26,7 +27,7 @@ title="absolute" charset="utf-8" />
     ime,
     date= new Date()
 
-    	function init() {
+    function init() {
 
     		//
     		//
@@ -40,9 +41,10 @@ title="absolute" charset="utf-8" />
     		//ресизиране на масата (спрямо видимия екран)
     		windowRazmeri= daiWinInnerWH()
     		elem= document.getElementById('cont')
-    		elem.style.width= windowRazmeri[0] - 30 + 'px'
+    		elem.style.width= windowRazmeri[0] - 20 + 'px'
     		elem.style.height= windowRazmeri[1] - 20 + 'px'
 
+                //LOG('Масата е преоразмерена')
     		//:TODO: ресизиране на дъската (за да са кръгли шашките)
 
 
@@ -51,6 +53,11 @@ title="absolute" charset="utf-8" />
     		//init0()
     		init1()
     	}
+        function LOG(msg) {
+          var consoleService = Components.classes["@mozilla.org/consoleservice;1"]
+          .getService(Components.interfaces.nsIConsoleService);
+          consoleService.logStringMessage(msg);
+          }
 
     	function insertP(replika) {
 
@@ -82,9 +89,60 @@ redf=0;return redf;
 //:TODO: ф-я за прихващане на onload
 window.onload=function() {
  init()
- //bar()
- //baz()
+ //init1()
+ //init2()
 }
+
+//тестове
+//прави полуход
+// function poluHod(kap1,kap2) {
+//   var brSh1, brSh2, brZat
+//   brSh1= apole[kap1]
+//   if (brSh1>0) {  //има к'во да се мести
+//   brSh2= apole[kap2]
+//   if (brSh2>=-1) {  //има къде
+//   if (brSh2==-1) {  //удар, бий по главата
+//   apole[kap2]= 1
+//   a2elSh1[0][kap2].style.visibility= 'hidden'
+//   a2elSh0[0][kap2].style.visibility= 'visible'
+//   brZat= Math.abs(apole[14])  //бар на прот
+//   apole[14]--
+//   a1vrah[14].innerHTML= brZat+1
+//   if (brZat<3) {
+//     a2elSh1[brZat][14].style.visibility= 'visible'
+//     }
+//     apole[kap1]--
+//     a1vrah[kap1].innerHTML= brSh1-1
+//     if (brSh1<=3) {
+//       a2elSh0[brSh1-1][kap1].style.visibility= 'hidden'
+//       }
+//       }
+//       else if (brSh2<3) {
+//         a2elSh0[brSh2][kap2].style.visibility= 'visible'
+//         apole[kap1]--                       //
+//         apole[kap2]++                       //
+//         a1vrah[kap1].innerHTML= brSh1-1     //
+//         a1vrah[kap2].innerHTML= brSh2+1     //
+//         //маха шашка
+//         if (brSh1<=3) {
+//           a2elSh0[brSh1-1][kap1].style.visibility= 'hidden'
+//           }
+//           }
+//           else {  //brSh2>3
+//           a1vrah[kap2].innerHTML= brSh2+1
+//           apole[kap2]++
+//           apole[kap1]--
+//           a1vrah[kap1].innerHTML= brSh1-1
+//           if (brSh1<=3) {
+//             a2elSh0[brSh1-1][kap1].style.visibility= 'hidden'
+//             }
+//             }
+//             }
+//             else return false;
+//             }
+//             else return false;
+//             }
+//тестове
     // ]]>
     </script>
 
@@ -111,7 +169,7 @@ height="100%" style="overflow: hidden">Не</object>
 <iframe src="дъска.svg" width="100%" height="100%" name="imap">Тъп
 браузер</iframe>
 
-<embed src="дъска.svg" width="100%" height="100%" type="image/svg+xml" name="emap">-->
+<embed src="дъска.svg" width="100%" height="100%" type="image/svg+xml" name="emap">
 
 <svg
    xmlns:svg="http://www.w3.org/2000/svg"
@@ -146,7 +204,7 @@ height="100%" style="overflow: hidden">Не</object>
        style="fill:#412504;fill-opacity:0.85882353;stroke:none;filter:url(#filter5962)" />
   </g>
 </svg>
-
+-->
 
 
 <div id="pole1">
@@ -154,25 +212,20 @@ height="100%" style="overflow: hidden">Не</object>
 
 <!-- поле на противника за контр. кубче, пипаж, време ... -->
 <div class="kapia" id="kapiaz" >
-  <div class="kap-num">контра</div>
-  <div class="kletka" id="kl00-z" >
-      <img class="sh0" id="sh00-z" src="sh0x48.png" alt="" width="100%"
-height="100%" />
-      <img class="sh1" id="sh10-z" src="sh1x48.png" alt="" width="100%"
-height="100%" />
+  <div id="kub1" >
+    <input type="button" value="1" id="but-kub1" title="but-kub1" />
   </div>
-
-  <div class="kletka" id="kl01-z" >
-      <img class="sh0" id="sh01-z" src="sh0x48.png" alt="" width="100%"
-height="100%" />
-      <img class="sh1" id="sh11-z" src="sh1x48.png" alt="" width="100%"
-height="100%" />
+  <div id="tekrez1" >
+    <input type="text" readonly="readonly" value="0(25)" id="inp-tekrez1" maxlength="3"/>
   </div>
-
-  <div class="kletka" id="kl02-z" >
-      <img class="sh0" id="sh02-z" src="sh0x48.png" alt="" width="100%" height="100%" />
-      <img class="sh1" id="sh12-z" src="sh1x48.png" alt="" width="100%" height="100%" />
-      <span class="num" id="numz" >167</span>
+  <div id="gtimer1" >
+    <input type="text" readonly="readonly" value="666" id="inp-gtimer1" maxlength="3"/>
+  </div>
+  <div id="timer1" >
+    <input type="text" readonly="readonly" value="66" id="inp-timer1" maxlength="3"/>
+  </div>
+  <div id="pips1" >
+    <input type="text" readonly="readonly" value="167" id="inp-pips1" maxlength="3"/>
   </div>
 </div>
 
@@ -337,31 +390,41 @@ height="100%" />
  </div>
 <!-- среда-->
 <div id="sreda">
+  <div id="kub64" >
+    <input type="button" value="64" id="but-kub64" title="but-kub64" />
+  </div>
+  <div id="zar0" >
+    <input type="button" value="0" id="but-zar01" title="but-zar01" size="1"/>
+    <input type="button" value="0" id="but-zar02" title="but-zar02" size="1"/>
+  </div>
+  <div id="centar">пос</div>
+  <div id="zar1" >
+    <input type="button" value="0" id="but-zar11" title="but-zar11" size="1"/>
+    <input type="button" value="0" id="but-zar12" title="but-zar12" size="1"/>
+  </div>
+  <div id="zachat" >
+    <input type="text" value="13/9*" id="inp-zachat" />
+  </div>
 
 </div>
 <!-- /среда-->
-
-<div class="kapia" id="kapiak" >
-  <div class="kletka" id="kl0-k" >
-    <img class="sh0" id="sh00-k" src="sh0x48.png" alt="" width="100%"
-height="100%" />
-    <img class="sh1" id="sh10-k" src="sh1x48.png" alt="" width="100%"
-height="100%" />
-    <span class="num" id="numk" >167</span>
+<!-- поле за моя рез, време . -->
+<div id="kapiak" >
+  <div id="pips0" >
+    <input type="text" readonly="readonly" value="167" id="inp-pips0" maxlength="3"/>
   </div>
-  <div class="kletka" id="kl1-k" >
-    <img class="sh0" id="sh01-k" src="sh0x48.png" alt="" width="100%"
-height="100%" />
-    <img class="sh1" id="sh11-k" src="sh1x48.png" alt="" width="100%"
-height="100%" />
+  <div id="timer0" >
+    <input type="text" readonly="readonly" value="66" id="inp-timer0" maxlength="3"/>
   </div>
-  <div class="kletka" id="kl2-k" >
-    <img class="sh0" id="sh02-k" src="sh0x48.png" alt="" width="100%"
-height="100%" />
-    <img class="sh1" id="sh12-k" src="sh1x48.png" alt="" width="100%"
-height="100%" />
+  <div id="gtimer" >
+    <input type="text" readonly="readonly" value="666" id="inp-gtimer0" maxlength="3"/>
   </div>
-  <div class="kap-num" >пжп</div>
+  <div id="tekrez0" >
+    <input type="text" readonly="readonly" value="0(25)" id="inp-tekrez0" maxlength="3"/>
+  </div>
+  <div id="kub0" >
+     <input type="button" value="1" id="but-kub0" title="but-kub0" />
+  </div>
 </div>
 
 
@@ -542,11 +605,12 @@ height="100%" />
 	<div id="box-mes">
 		<p id="bot0">Проба</p>
 
+
 	</div>
 	<div id="box-inp">
 		<input type="text" id="replika" size="30"/><br />
 		<button onclick="insertP(ime+','+daiTime()+' >'+elementReplika.value)"
-onkeypress="if (event.keyCode == 13) this.click()">Прати</button>
+onkeypress="javascript:(event) {if (event.keyCode == 13) this.click()}">Прати</button>
 		<button onclick="init()" >Тест</button>
 	</div>
 </div>
@@ -556,14 +620,14 @@ onkeypress="if (event.keyCode == 13) this.click()">Прати</button>
 <!-- Поле за играчите, статистика, подсказки -->
 <div id="pole-igr-rez">
 <p>
-rnd: <input type="text" name="rnd" value="" id="rnd" size="2" maxlength="2"/>
+rnd: <input type="text" name="rnd1" value="" id="rnd1" size="2" maxlength="2"/>
+<input type="text" name="rnd2" value="" id="rnd2" size="2" maxlength="2"/>
+
 ход: <input type="text" name="hod1" value="" id="hod1" size="2" maxlength="10"/>
 <input type="text" name="hod2" value="" id="hod2" size="2" maxlength="10"/>
 
 
-<input type="button" value="проби" id="but-probi" title="but-probi"
-onclick="poluHod(document.getElementById('hod1').value,document.getElementById('hod2').
-value)"/>
+<input type="button" value="проби" id="but-probi" title="but-probi" />
 <button id="but-proba0" title="but-proba0" >проба0</button>
 <button id="but-proba1" title="but-proba1" >проба1</button>
 
