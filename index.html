@@ -1,78 +1,645 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="bg" xml:lang="bg" > 
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC
+    "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="bg">
 <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>Поле</title>
-    <link rel="stylesheet" href="pole.css" type="text/css" media="screen" title="percent" charset="utf-8" />
-    <link rel="alternate stylesheet" href="pole_abs.css" type="text/css" media="screen" title="absolute" charset="utf-8" />
-    <script type="text/javascript" src="pole.js"></script>
-    
-      
+  <meta http-equiv="Content-type" content="application/xhtml+xml; charset=utf-8" />
+  <title>Поле</title>
+  <link rel="stylesheet" href="pole.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="pole-style.css" type="text/css" media="screen" title="pjp1"
+charset="utf-8" />
+  <link rel="alternate stylesheet" href="pole_abs.css" type="text/css" title="pjp2"
+charset="utf-8" />
+  <script type="text/javascript" src="/../js/razni-dom.js"></script>
+  <script type="text/javascript" src="pole.js"></script>
+  <script type="text/javascript" >
+    // <![CDATA[
+
+    //декларации и инициализиране на променливи
+    //елем==обект от дом, див
+    //
+    //
+    var windowRazmeri= new Array(0,0),
+    elementBoxMes,
+    elementReplika,
+    elem,  //временен ел
+    ime,
+    date= new Date()
+
+    function init() {
+
+    		//
+    		//
+    		//
+    		//иниц чата
+    		elementBoxMes= document.getElementById('box-mes')
+    		elementReplika= document.getElementById('replika')
+    		ime= 'Брадата'
+
+
+    		//ресизиране на масата (спрямо видимия екран)
+    		windowRazmeri= daiWinInnerWH()
+    		elem= document.getElementById('cont')
+    		elem.style.width= windowRazmeri[0] - 20 + 'px'
+    		elem.style.height= windowRazmeri[1] - 20 + 'px'
+
+                //LOG('Масата е преоразмерена')
+    		//:TODO: ресизиране на дъската (за да са кръгли шашките)
+
+
+            //alert(az[2][1])
+    		//иниц дъската
+    		//init0()
+    		init1()
+    	}
+        function LOG(msg) {
+          var consoleService = Components.classes["@mozilla.org/consoleservice;1"]
+          .getService(Components.interfaces.nsIConsoleService);
+          consoleService.logStringMessage(msg);
+          }
+
+    	function insertP(replika) {
+
+    		var elem = document.createElement('p')
+    		elem.appendChild(document.createTextNode(replika))
+    		elementBoxMes.appendChild(elem)
+
+    	}
+
+// връща тек време h:m:s
+function daiTime() {
+var t=new Date()
+var h=t.getHours()
+var m=t.getMinutes()
+var s=t.getSeconds()
+if (m<10) m='0'+m
+if (s<10) s='0'+s
+return h+':'+m+':'+s
+}
+
+
+function test() {
+redf=0;return redf;
+}
+
+
+
+
+//:TODO: ф-я за прихващане на onload
+window.onload=function() {
+ init()
+ //init1()
+ //init2()
+}
+
+//тестове
+//прави полуход
+// function poluHod(kap1,kap2) {
+//   var brSh1, brSh2, brZat
+//   brSh1= apole[kap1]
+//   if (brSh1>0) {  //има к'во да се мести
+//   brSh2= apole[kap2]
+//   if (brSh2>=-1) {  //има къде
+//   if (brSh2==-1) {  //удар, бий по главата
+//   apole[kap2]= 1
+//   a2elSh1[0][kap2].style.visibility= 'hidden'
+//   a2elSh0[0][kap2].style.visibility= 'visible'
+//   brZat= Math.abs(apole[14])  //бар на прот
+//   apole[14]--
+//   a1vrah[14].innerHTML= brZat+1
+//   if (brZat<3) {
+//     a2elSh1[brZat][14].style.visibility= 'visible'
+//     }
+//     apole[kap1]--
+//     a1vrah[kap1].innerHTML= brSh1-1
+//     if (brSh1<=3) {
+//       a2elSh0[brSh1-1][kap1].style.visibility= 'hidden'
+//       }
+//       }
+//       else if (brSh2<3) {
+//         a2elSh0[brSh2][kap2].style.visibility= 'visible'
+//         apole[kap1]--                       //
+//         apole[kap2]++                       //
+//         a1vrah[kap1].innerHTML= brSh1-1     //
+//         a1vrah[kap2].innerHTML= brSh2+1     //
+//         //маха шашка
+//         if (brSh1<=3) {
+//           a2elSh0[brSh1-1][kap1].style.visibility= 'hidden'
+//           }
+//           }
+//           else {  //brSh2>3
+//           a1vrah[kap2].innerHTML= brSh2+1
+//           apole[kap2]++
+//           apole[kap1]--
+//           a1vrah[kap1].innerHTML= brSh1-1
+//           if (brSh1<=3) {
+//             a2elSh0[brSh1-1][kap1].style.visibility= 'hidden'
+//             }
+//             }
+//             }
+//             else return false;
+//             }
+//             else return false;
+//             }
+//тестове
+    // ]]>
+    </script>
+
 </head>
 
 
-<body onload="javascript:init()" >
-
+<body><!--<img id="tabla" src="дъска.svg" alt="Дъската" width="100%" height="100%" />-->
 <div id="cont" >
-    <div id="proba" >
-        <div class="proba1">
-          <img class="sh0" src="../../ris/sh0x48.png" alt=""  width="100%" height="100%"/>
-          <img class="sh1" src="../../ris/sh1x48.png" alt="" width="100%" height="100%" />
-        </div>
-    
-    </div>
-    
+
+
+<div id="pole-kontr-zar"></div>
+
+
+<!-- поле -->
+
 <div id="pole">
 
-<img id="tabla" src="../../ris/tabla.png" alt="" width=100% height=100%/>
+<!-- рис табла Chromium работи<img id="tabla" src="дъска.svg" alt="Дъската" width="100%"
+height="100%"
+/>
+<object type="image/svg+xml" name="daska" data="дъска.svg" width="100%"
+height="100%" style="overflow: hidden">Не</object>
+
+<iframe src="дъска.svg" width="100%" height="100%" name="imap">Тъп
+браузер</iframe>
+
+<embed src="дъска.svg" width="100%" height="100%" type="image/svg+xml" name="emap">
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="100%"
+   height="100%"
+   id="svg5989">
+  <defs
+     id="defs5991">
+    <filter
+       x="-0.26449743"
+       y="-0.47021765"
+       width="1.5289948"
+       height="1.9404353"
+       color-interpolation-filters="sRGB"
+       id="filter5962">
+      <feGaussianBlur
+         id="feGaussianBlur5964"
+         stdDeviation="35.266323" />
+    </filter>
+  </defs>
+  <g
+     id="layer1">
+    <rect
+       width="320"
+       height="180"
+       x="211.74469"
+       y="76.340431"
+       transform="matrix(1.3080489,0,0,1.3742621,-166.26023,11.40465)"
+       id="rect5956"
+       style="fill:#412504;fill-opacity:0.85882353;stroke:none;filter:url(#filter5962)" />
+  </g>
+</svg>
+-->
+
 
 <div id="pole1">
-    <div class="kapia" id="kapia0" onmousedown="mishDolu('kapia0')" >
-    
-        <div class="kletka" id="kl00" >
-            <img class="sh0" id="shr01" src="../../ris/sh0x48.png" alt="" width="100%" height="100%" />
-            <img class="sh1" id="shb01" src="../../ris/sh1x48.png" alt="" width="100%" height="100%" />
-        </div>  
-        
-        <div class="kletka" id="kl01" >
-            <img class="sh0" id="shr02" src="../../ris/sh0x48.png" alt="" width="100%" height="100%" />
-            <img class="sh1" id="shb02" src="../../ris/sh1x48.png" alt="" width="100%" height="100%" />
+<div class="nomera"></div>
+
+<!-- поле на противника за контр. кубче, пипаж, време ... -->
+<div class="kapia" id="kapiaz" >
+  <div id="kub1" >
+    <input type="button" value="1" id="but-kub1" title="but-kub1" />
+  </div>
+  <div id="tekrez1" >
+    <input type="text" readonly="readonly" value="0(25)" id="inp-tekrez1" maxlength="3"/>
+  </div>
+  <div id="gtimer1" >
+    <input type="text" readonly="readonly" value="666" id="inp-gtimer1" maxlength="3"/>
+  </div>
+  <div id="timer1" >
+    <input type="text" readonly="readonly" value="66" id="inp-timer1" maxlength="3"/>
+  </div>
+  <div id="pips1" >
+    <input type="text" readonly="readonly" value="167" id="inp-pips1" maxlength="3"/>
+  </div>
+</div>
+
+    <div class="kapia" id="kapia7" >
+        <div class="kap-num">7</div>
+        <div class="kletka" id="kl00-7" >
+            <img class="sh0" id="sh00-7" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh10-7" src="sh1x48.png" alt="" width="100%" height="100%" />
         </div>
-        
+
+        <div class="kletka" id="kl01-7" >
+            <img class="sh0" id="sh01-7" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh11-7" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl02-7" >
+            <img class="sh0" id="sh02-7" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh12-7" src="sh1x48.png" alt="" width="100%" height="100%" />
+            <span class="num" id="num7" >7</span>
+        </div>
     </div>
-    
-    <div class="kapia" id="kapia1" onmousedown="mishDolu('kapia1')" >
-        <div class="kletka" id="kl10" >
-          <img class="sh0" id="shr11" src="../../ris/sh0x48.png" alt="" width="100%" height="100%" />
-          <img class="sh1" id="shb11" src="../../ris/sh1x48.png" alt="" width="100%" height="100%" />
-          </div>
-        <div class="kletka" id="kl11" >
-          <img class="sh0" id="shr12" src="../../ris/sh0x48.png" alt="" width="100%" height="100%" />
-         <img class="sh1" id="shb12" src="../../ris/sh1x48.png" alt="" width="100%" height="100%" />
-         <span id=num>3</span>
+
+
+    <div class="kapia" id="kapia8" >
+        <div class="kap-num" >8</div>
+        <div class="kletka" id="kl08" >
+<img class="sh0" id="sh00-8" src="sh0x48.png" alt="" width="100%" height="100%" />
+<img class="sh1" id="sh10-8" src="sh1x48.png" alt="" width="100%" height="100%" />
         </div>
-         <div class="kletka" id="kl12" >
-         
+        <div class="kletka" id="kl18" >
+<img class="sh0" id="sh01-8" src="sh0x48.png" alt="" width="100%" height="100%" />
+<img class="sh1" id="sh11-8" src="sh1x48.png" alt="" width="100%" height="100%" />
         </div>
-            
-            
-            
-            </div>
-        
-            </div>    
-</div>
+        <div class="kletka" id="kl12" >
+<img class="sh0" id="sh02-8" src="sh0x48.png" alt="" width="100%" height="100%" />
+<img class="sh1" id="sh12-8" src="sh1x48.png" alt="" width="100%" height="100%" />
+<span class="num" id="num8" >8</span>
+        </div>
+    </div>
+
+<!-- капия 9-->
+<div class="kapia" id="kapia9" >
+       <div class="kap-num" >9</div>
+        <div class="kletka" id="kl0-9" >
+            <img class="sh0" id="sh00-9" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh10-9" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl1-9" >
+            <img class="sh0" id="sh01-9" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh11-9" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl2-9" >
+            <img class="sh0" id="sh02-9" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh12-9" src="sh1x48.png" alt="" width="100%" height="100%" />
+            <span class="num" id="num9" >9</span>
+        </div>
+    </div>
+
+<!-- край капия 9-->
+
+<!-- бар на противника - капия 14, моя е капия 13-->
+<div class="kapia" id="kapia14" >
+        <div class="kap-num" >14-б</div>
+        <div class="kletka" id="kl0-14" >
+        <img class="sh0" id="sh00-14" src="sh0x48.png" alt="" width="100%" height="100%" />
+        <img class="sh1" id="sh10-14" src="sh1x48.png" alt="" width="100%"
+height="100%" />
+        </div>
+
+        <div class="kletka" id="kl1-14" >
+            <img class="sh0" id="sh01-14" src="sh0x48.png" alt="" width="100%"
+height="100%" />
+            <img class="sh1" id="sh11-14" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl2-14" >
+            <img class="sh0" id="sh02-14" src="sh0x48.png" alt="" width="100%"
+height="100%" />
+            <img class="sh1" id="sh12-14" src="sh1x48.png" alt="" width="100%" height="100%" />
+            <span class="num" id="num14" >14</span>
+        </div>
+    </div>
+<!--бар кап14 -->
+
+
+    <div class="kapia" id="kapia10" >
+       <div class="kap-num" >10</div>
+        <div class="kletka" id="kl0-10" >
+            <img class="sh0" id="sh00-10" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh10-10" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl1-10" >
+            <img class="sh0" id="sh01-10" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh11-10" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl2-10" >
+            <img class="sh0" id="sh02-10" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh12-10" src="sh1x48.png" alt="" width="100%" height="100%" />
+            <span class="num" id="num10" >10</span>
+        </div>
+    </div>
+
+<div class="kapia" id="kapia11" >
+       <div class="kap-num" >11</div>
+        <div class="kletka" id="kl0-11" >
+            <img class="sh0" id="sh00-11" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh10-11" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl1-11" >
+            <img class="sh0" id="sh01-11" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh11-11" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl2-11" >
+            <img class="sh0" id="sh02-11" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh12-11" src="sh1x48.png" alt="" width="100%" height="100%" />
+            <span class="num" id="num11" >11</span>
+        </div>
+    </div>
+<div class="kapia" id="kapia12" >
+       <div class="kap-num" >12</div>
+        <div class="kletka" id="kl0-12" >
+            <img class="sh0" id="sh00-12" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh10-12" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl1-12" >
+            <img class="sh0" id="sh01-12" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh11-12" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl2-12" >
+            <img class="sh0" id="sh02-12" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh12-12" src="sh1x48.png" alt="" width="100%" height="100%" />
+            <span class="num" id="num12" >12</span>
+        </div>
+ </div>
+
+<!-- къща на противника, капия 15-->
+<div class="kapia" id="kapia15" >
+       <div class="kap-num" >15-к</div>
+        <div class="kletka" id="kl0-15" >
+            <img class="sh0" id="sh00-15" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh10-15" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl1-15" >
+            <img class="sh0" id="sh01-15" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh11-15" src="sh1x48.png" alt="" width="100%" height="100%" />
+        </div>
+
+        <div class="kletka" id="kl2-15" >
+            <img class="sh0" id="sh02-15" src="sh0x48.png" alt="" width="100%" height="100%" />
+            <img class="sh1" id="sh12-15" src="sh1x48.png" alt="" width="100%" height="100%" />
+            <span class="num" id="num15" >15</span>
+        </div>
+ </div>
+<!-- среда-->
+<div id="sreda">
+  <div id="kub64" >
+    <input type="button" value="64" id="but-kub64" title="but-kub64" />
+  </div>
+  <div id="zar0" >
+    <input type="button" value="0" id="but-zar01" title="but-zar01" size="1"/>
+    <input type="button" value="0" id="but-zar02" title="but-zar02" size="1"/>
+  </div>
+  <div id="centar">пос</div>
+  <div id="zar1" >
+    <input type="button" value="0" id="but-zar11" title="but-zar11" size="1"/>
+    <input type="button" value="0" id="but-zar12" title="but-zar12" size="1"/>
+  </div>
+  <div id="zachat" >
+    <input type="text" value="13/9*" id="inp-zachat" />
+  </div>
 
 </div>
-
-<div id="kontrol" >
-rnd: <input type="text" name="rnd" value="" id="rnd" size="2" maxlength="2"/>    
-ход: <input type="text" name="hod" value="" id="hod" size="10" maxlength="10"/>
-<input type="button" onclick="turi_cherna(document.getElementById('hod').value)" value="проби" id="ku" />
+<!-- /среда-->
+<!-- поле за моя рез, време . -->
+<div id="kapiak" >
+  <div id="pips0" >
+    <input type="text" readonly="readonly" value="167" id="inp-pips0" maxlength="3"/>
+  </div>
+  <div id="timer0" >
+    <input type="text" readonly="readonly" value="66" id="inp-timer0" maxlength="3"/>
+  </div>
+  <div id="gtimer" >
+    <input type="text" readonly="readonly" value="666" id="inp-gtimer0" maxlength="3"/>
+  </div>
+  <div id="tekrez0" >
+    <input type="text" readonly="readonly" value="0(25)" id="inp-tekrez0" maxlength="3"/>
+  </div>
+  <div id="kub0" >
+     <input type="button" value="1" id="but-kub0" title="but-kub0" />
+  </div>
 </div>
 
+
+<!-- капия 6-->
+<div class="kapia" id="kapia6" >
+  <div class="kletka" id="kl0-6" >
+    <img class="sh0" id="sh02-6" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh12-6" src="sh1x48.png" alt="" width="100%" height="100%" />
+    <span class="num" id="num6" >00</span>
+  </div>
+  <div class="kletka" id="kl1-6" >
+    <img class="sh0" id="sh01-6" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh11-6" src="sh1x48.png" alt="" width="100%" height="100%" />
+  </div>
+  <div class="kletka" id="kl2-6" >
+    <img class="sh0" id="sh00-6" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh10-6" src="sh1x48.png" alt="" width="100%" height="100%" />
+  </div>
+  <div class="kap-num" >6</div>
+</div>
+
+<div class="kapia" id="kapia5" >
+  <div class="kletka" id="kl0-5" >
+    <img class="sh0" id="sh02-5" src="sh0x48.png" alt="" width="100%"
+height="100%" />
+    <img class="sh1" id="sh12-5" src="sh1x48.png" alt="" width="100%"
+height="100%" />
+    <span class="num" id="num5" >00</span>
+  </div>
+  <div class="kletka" id="kl1-5" >
+    <img class="sh0" id="sh01-5" src="sh0x48.png" alt="" width="100%"
+height="100%" />
+    <img class="sh1" id="sh11-5" src="sh1x48.png" alt="" width="100%"
+height="100%" />
+  </div>
+  <div class="kletka" id="kl2-5" >
+    <img class="sh0" id="sh00-5" src="sh0x48.png" alt="" width="100%"
+height="100%" />
+    <img class="sh1" id="sh10-5" src="sh1x48.png" alt="" width="100%"
+height="100%" />
+  </div>
+  <div class="kap-num" >5</div>
+</div>
+<div class="kapia" id="kapia4" >
+  <div class="kletka" id="kl0-4" >
+    <img class="sh0" id="sh02-4" src="sh0x48.png" alt="" width="100%"
+height="100%" />
+    <img class="sh1" id="sh12-4" src="sh1x48.png" alt="" width="100%"
+height="100%" />
+    <span class="num" id="num4" >00</span>
+  </div>
+  <div class="kletka" id="kl1-4" >
+    <img class="sh0" id="sh01-4" src="sh0x48.png" alt="" width="100%"
+height="100%" />
+    <img class="sh1" id="sh11-4" src="sh1x48.png" alt="" width="100%"
+height="100%" />
+  </div>
+  <div class="kletka" id="kl2-4" >
+    <img class="sh0" id="sh00-4" src="sh0x48.png" alt="" width="100%"
+height="100%" />
+    <img class="sh1" id="sh10-4" src="sh1x48.png" alt="" width="100%"
+height="100%" />
+  </div>
+  <div class="kap-num" >4</div>
+</div>
+<!-- Бара ми, капия 13, да се еба в матрицата -->
+<div class="kapia" id="kapia13" >
+  <div class="kletka" id="kl0-13" >
+    <img class="sh0" id="sh02-13" src="sh0x48.png" alt="" width="100%"
+height="100%" />
+    <img class="sh1" id="sh12-13" src="sh1x48.png" alt="" width="100%"
+height="100%" />
+    <span class="num" id="num13" >00</span>
+  </div>
+  <div class="kletka" id="kl1-13" >
+    <img class="sh0" id="sh01-13" src="sh0x48.png" alt="" width="100%"
+height="100%" />
+    <img class="sh1" id="sh11-13" src="sh1x48.png" alt="" width="100%"
+height="100%" />
+  </div>
+  <div class="kletka" id="kl2-13" >
+    <img class="sh0" id="sh00-13" src="sh0x48.png" alt="" width="100%"
+height="100%" />
+    <img class="sh1" id="sh10-13" src="sh1x48.png" alt="" width="100%"
+height="100%" />
+  </div>
+  <div class="kap-num" >13-б</div>
+</div>
+<!-- капия 3 -->
+<div class="kapia" id="kapia3" >
+  <div class="kletka" id="kl0-3" >
+    <img class="sh0" id="sh02-3" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh12-3" src="sh1x48.png" alt="" width="100%" height="100%" />
+    <span class="num" id="num3" >00</span>
+  </div>
+  <div class="kletka" id="kl1-3" >
+    <img class="sh0" id="sh01-3" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh11-3" src="sh1x48.png" alt="" width="100%" height="100%" />
+  </div>
+  <div class="kletka" id="kl2-3" >
+    <img class="sh0" id="sh00-3" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh10-3" src="sh1x48.png" alt="" width="100%" height="100%" />
+  </div>
+  <div class="kap-num" >3</div>
+</div>
+<div class="kapia" id="kapia2" >
+  <div class="kletka" id="kl0-2" >
+    <img class="sh0" id="sh02-2" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh12-2" src="sh1x48.png" alt="" width="100%" height="100%" />
+    <span class="num" id="num2" >00</span>
+  </div>
+  <div class="kletka" id="kl1-2" >
+    <img class="sh0" id="sh01-2" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh11-2" src="sh1x48.png" alt="" width="100%" height="100%" />
+  </div>
+  <div class="kletka" id="kl2-2" >
+    <img class="sh0" id="sh00-2" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh10-2" src="sh1x48.png" alt="" width="100%" height="100%" />
+  </div>
+  <div class="kap-num" >2</div>
+</div>
+<div class="kapia" id="kapia1" >
+  <div class="kletka" id="kl0-1" >
+    <img class="sh0" id="sh02-1" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh12-1" src="sh1x48.png" alt="" width="100%" height="100%" />
+    <span class="num" id="num1" >00</span>
+  </div>
+  <div class="kletka" id="kl1-1" >
+    <img class="sh0" id="sh01-1" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh11-1" src="sh1x48.png" alt="" width="100%" height="100%" />
+  </div>
+  <div class="kletka" id="kl2-1" >
+    <img class="sh0" id="sh00-1" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh10-1" src="sh1x48.png" alt="" width="100%" height="100%" />
+  </div>
+  <div class="kap-num" >1</div>
+</div>
+<!-- Моят дом, капия 0.-->
+<div class="kapia" id="kapia0" >
+  <div class="kletka" id="kl0-0" >
+    <img class="sh0" id="sh02-0" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh12-0" src="sh1x48.png" alt="" width="100%" height="100%" />
+    <span class="num" id="num0" >00</span>
+  </div>
+  <div class="kletka" id="kl1-0" >
+    <img class="sh0" id="sh01-0" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh11-0" src="sh1x48.png" alt="" width="100%" height="100%" />
+  </div>
+  <div class="kletka" id="kl2-0" >
+    <img class="sh0" id="sh00-0" src="sh0x48.png" alt="" width="100%" height="100%" />
+    <img class="sh1" id="sh10-0" src="sh1x48.png" alt="" width="100%" height="100%" />
+  </div>
+  <div class="kap-num" >0-к</div>
+</div>
+
+<!-- -->
+<div class="nomera"></div>
+
+</div><!-- поле 1-->
+</div><!-- поле -->
+
+<div id="pole-izlezli"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="kont-chat">
+	<div id="box-mes">
+		<p id="bot0">Проба</p>
+
+
+	</div>
+	<div id="box-inp">
+		<input type="text" id="replika" size="30"/><br />
+		<button onclick="insertP(ime+','+daiTime()+' >'+elementReplika.value)"
+onkeypress="javascript:(event) {if (event.keyCode == 13) this.click()}">Прати</button>
+		<button onclick="init()" >Тест</button>
+	</div>
 </div>
 
 
-</body></html>
+
+<!-- Поле за играчите, статистика, подсказки -->
+<div id="pole-igr-rez">
+<p>
+rnd: <input type="text" name="rnd1" value="" id="rnd1" size="2" maxlength="2"/>
+<input type="text" name="rnd2" value="" id="rnd2" size="2" maxlength="2"/>
+
+ход: <input type="text" name="hod1" value="" id="hod1" size="2" maxlength="10"/>
+<input type="text" name="hod2" value="" id="hod2" size="2" maxlength="10"/>
+
+
+<input type="button" value="проби" id="but-probi" title="but-probi" />
+<button id="but-proba0" title="but-proba0" >проба0</button>
+<button id="but-proba1" title="but-proba1" >проба1</button>
+
+<input id="but-img" type="image" src="sh0x48.png" value="пр" alt="прати" title="but-img" name="but-img" />
+
+
+
+</p>
+
+
+</div>
+
+</div></body></html>
 
 
