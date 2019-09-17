@@ -1,0 +1,255 @@
+/* */
+
+* {
+margin: 0;
+padding: 0;
+
+}
+
+body {
+background-color: #b1b5b1;     
+}
+
+/* #A0FFA0;*/
+/* #4e774e;*/
+/* */
+/* */
+
+/* тест */
+div {
+border: 1px solid red;
+/*margin: 2px; */
+}
+
+/* основен Динамично се ресизира */
+#cont {
+width: 800px;
+height: 400px; /*600px;*/
+}
+
+#pole-left{
+float: left;
+width: 5%;
+height: 50%;
+}
+
+
+#pole{
+float: left;
+width: 50%;
+height: 50%;
+line-height: 0;
+
+border-style: solid;
+border-width: 16px;
+border-color: green;
+-moz-border-radius: 4%;
+-webkit-border-radius: 4%;
+}
+
+/*  background svg, когато Го направят      */
+#tabla {
+z-index: 2;
+background: transparent;
+opacity: 0.6;
+}
+
+/*не требе, ама карай*/
+#pole1{
+position: relative;
+margin: 0;
+/*top: -100%;
+top: -100%; ако има рис*/
+
+width: 100%;
+height: 100%;
+line-height: 0;
+border: none;
+/*-moz-border-radius: 4%;
+-webkit-border-radius: 4%;*/
+background:transparent;
+z-index: 1;
+
+
+}
+
+.kapia {
+	float:left;
+width: 14%;
+height: 45%;
+
+}
+/* може да е с различни р-ри */
+#bar {
+	float:left;
+width: 14%;
+height: 45%;
+}
+
+.kletka {
+position: relative;
+border: none;
+/*margin: auto;
+margin-left: auto;
+margin-right: auto;*/
+width: 100%;
+height: 33%;
+/*border: none; */
+}
+
+
+#sreda {
+clear: both;
+height: 10%;
+width: 100%;
+}
+
+/*пр*/
+
+#proba {
+width: 25%;
+height: 25%;
+margin:0;
+border: none;
+}
+.proba1 {
+width: 50%;
+height: 25%;
+margin:0;
+border: none;
+}
+
+/* пр */
+
+img {
+/*display: inline;
+
+vertical-align: middle;
+        display: block;
+border: 1px solid blue;*/
+}
+
+
+.sh0 {
+position:relative;
+line-height: 0;
+margin:0;
+pading:0;
+        /*display: none;*/
+/*margin:0px;
+left: 0px;*/
+/*top: 0px;*/
+/*width: 100%;
+height: 100%;*/
+/*display: none; отразява се на структ*/
+visibility: hidden; /*не се отразява на структурата*/
+}
+.sh1 {
+position: relative;
+line-height: 0;
+top: -100%;
+pading: 0;
+margin: 0;
+visibility: hidden; 
+}
+/*.sh1 {
+width: 100%;
+height: 100%;
+}
+.sh2 {
+width: 100%;
+height: 100%;
+}*/
+#num {
+position: relative;
+width: 100%;
+height: 100%;
+display: block;
+/*margin-left: auto;
+margin-right: auto;*/
+line-height: 0;
+top: -200%;
+/*border: 1px solid blue;*/
+background: transparent;
+
+
+}
+#num2 {
+text-align: center;
+width:100%;
+}
+
+#num9 {
+position: relative;
+width: 100%;
+height: 100%;
+display: block;
+text-align:center;
+line-height: 1em;
+top: -170%;
+font-size: 0.5em;
+/*border: 1px solid blue;*/
+background: transparent;
+
+
+}
+
+
+
+/* задаване на начално положение */
+
+#sh10-9, #sh11-9, #sh12-9 {
+visibility: visible;
+}
+#sh00-7, #sh01-7, #sh02-7 {
+visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+/* чат */
+#kont-chat {
+
+float: right;
+
+width: 30%;
+
+height: 80%;
+
+}
+
+#box-mes {
+
+height: 76%;
+/*max-height: 70%;*/
+overflow: scroll;
+ /*height: 78%  78em;  .    160px;    */
+
+}
+#box-inp {
+
+/*height: 20%;
+height: 28%;    .28em;     40px;     */
+
+}
+
+/* форми */
+
+#replika {
+width: 100%;
+}
+
+
+
+
+
+
+
+
+

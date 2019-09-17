@@ -1,0 +1,38 @@
+/*@charset utf-8*/
+/* поле-стил*/
+body {
+/*height: 100%; опит с position:absolute*/
+background: #b1b5b1;
+/* #A0FFA0;*/
+/* #4e774e;*/
+/* */
+}
+#pole {
+background: #eeeeee;
+border-style: solid;
+border-width: 2px;
+border-color: green;
+-moz-border-radius: 2%;
+-webkit-border-radius: 2%;
+}
+#sreda input {
+border: none;
+}
+#but-zar01, #but-zar02 {
+background: green;
+}
+#but-zar11, #but-zar12 {
+background: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+

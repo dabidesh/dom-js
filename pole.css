@@ -1,0 +1,298 @@
+/*@charset utf-8*/
+/* поле-структура*/
+
+* {
+margin: 0;
+padding: 0;
+}
+
+/* разраб
+div {
+border: 1px solid red;*/
+/*margin: 2px; */
+
+
+/* Основен,  динамично се  преоразмерява */
+#cont {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+width: 640px;
+height: 480px; /*600px;*/
+}
+/* не се ползва за т'ва */
+#pole-kontr-zar {
+float: left;
+width: 1%;
+height: 75%;
+}
+#pole{
+/*за да се мести
+position: fixed;
+top: 10px;
+left: 10px;*/
+float: left;
+width: 50%;
+height: 80%;
+/*line-height: 0;*/
+
+}
+/* :NOTE:промяна: за интерфейс */
+#pole-izlezli {
+float: left;
+width: 1%;
+height: 75%;
+}
+#pole-igr-rez {
+clear: both;
+width: 50%;
+height: 15%;
+}
+
+/*  background svg, когато Го направят, Файърфокс се бави   */
+#tabla {
+/*z-index: 2;*/
+background: transparent;
+opacity: 0.6;
+}
+
+/*не требе, ама карай, за гъзарии и ефекти*/
+#pole1{
+position: relative;
+/*top: -100%;
+top: -100%; ако има рис*/
+
+width: 100%;
+height: 100%;
+        line-height: 0;
+border: none;
+background:transparent;
+/*z-index: 1;*/
+}
+
+.kapia {
+float:left;
+width: 10%;
+height: 40%;
+}
+.kapia:hover {
+cursor: pointer;
+}
+/* :TODO: бара (13,14) и къщите (0,15) може да е са а различни р-ри */
+#kapia13, #kapia14 {
+width: 5%;
+}
+#kapiak, #kapiaz {
+  float: left;
+  width: 20%;
+  height: 40%;
+  line-height: 100%;
+  text-align: center;
+}
+#kapiak div, #kapiaz div {
+position: relative;
+height: 20%;
+width: 100%;
+}
+#kapiak input, #kapiaz input {
+height: 100%;
+width: 100%;
+text-align: center;
+
+border: none;
+}
+/*#pips0 {
+  heigth: 25%;
+}*/
+
+.kletka {
+position: relative;
+width: 100%;
+height: 31%;
+    border: none;
+opacity: 0.8;
+}
+.kletka:hover {
+opacity: 1;
+/*cursor: pointer;*/
+}
+
+#sreda {
+clear: both;
+height: 10%;
+width: 100%;
+}
+#sreda div {
+float: left;
+width: 20%;
+height: 100%;
+text-align: center;
+}
+/*#kub64 {
+width: 20%;
+height: 100%
+}
+#zar0 {
+width: 20%;
+}*/
+#but-kub64 {
+width: 100%;
+height: 100%;
+}
+#but-zar01, #but-zar02, #but-zar11, #but-zar12 {
+width: 45%;
+height: 100%;
+}
+
+#inp-zachat {
+width: 100%;
+height: 100%;
+}
+
+/*пр*/
+
+
+
+/* пр
+
+img {
+display: block;
+}
+*/
+
+.sh0 {
+position:relative;
+line-height: 0;
+visibility: hidden; /*не се отразява на структурата*/
+}
+.sh1 {
+position: relative;
+line-height: 0;
+top: -100%;
+visibility: hidden;
+}
+
+/*брой шашки за суджуците*/
+.num {
+display: block;
+position: relative;
+width: 100%;
+height: 100%;
+text-align:center;
+line-height: 1em;
+top: -170%;
+font-size: .8em;
+/*border: 1px solid blue;*/
+color: #00ffff;
+background: transparent;
+}
+/*номера за капиите или друго, пр. редактиране*/
+.kap-num {
+position: relative;
+width: 100%;
+height: 7%;
+text-align:center;
+font-size: 60%;
+/*vertical-align: middle;*/
+line-height: 1em;
+}
+
+/*номера, управление, надписи*/
+.nomera {
+clear: both;
+width: 100%;
+height: 5%;
+}
+
+
+/* задаване на начално положение
+#sh10-12, #sh01-12, #sh02-12 {
+visibility: visible;
+}
+#sh10-11 {
+visibility: visible;
+}
+#sh10-10, #sh11-10, #sh12-10 {
+visibility: visible;
+}
+#sh00-9, #sh01-9, #sh02-9 {
+visibility: visible;
+}
+#sh00-8 {
+visibility: visible;
+}
+#sh00-7, #sh01-7, #sh02-7 {
+visibility: visible;
+}
+
+#sh10-6, #sh11-6, #sh12-6 {
+visibility: visible;
+}
+
+#sh10-6, #sh11-6, #sh12-6 {
+visibility: visible;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+/* чат, седянка */
+#kont-chat {
+float: right;
+width: 40%;
+height: 50%;
+
+border-style: solid;
+border-width: 16px;
+border-color: green;
+-moz-border-radius: 8%;
+-webkit-border-radius: 8px;
+-khtml-border-radius:  8%;
+border-radius: 8%;
+}
+
+#box-mes {
+
+height: 76%;
+/*max-height: 70%;*/
+overflow: scroll;
+ /*height: 78%  78em;  .    160px;    */
+
+}
+#box-inp {
+
+/*height: 20%;
+height: 28%;    .28em;     40px;     */
+
+}
+
+/* форми */
+
+#replika {
+width: 100%;
+}
+input {
+opacity: 0.8;
+font-size: 140%;
+
+}
+#img-but1 {
+opacity: 0.7;
+
+}
+
+
+
+
+
+
+
+
